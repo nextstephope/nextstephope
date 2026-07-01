@@ -3,64 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Details - NextStepHope</title>
+    <title>Job Specification Details - NextStepHope</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #f4f7f6; color: #333; padding: 20px; }
-        .detail-container { max-width: 700px; margin: 40px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 8px solid #0d6efd; }
-        h1 { margin-bottom: 15px; color: #111; }
-        .meta-info { font-size: 16px; margin-bottom: 10px; color: #555; background: #f8f9fa; padding: 10px; border-radius: 6px; }
-        .meta-info strong { color: #0d6efd; }
-        .description { margin-top: 20px; line-height: 1.8; font-size: 16px; color: #444; }
-        .btn-group { display: flex; gap: 15px; margin-top: 30px; }
-        .btn { padding: 12px 25px; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; text-decoration: none; text-align: center; flex: 1; }
-        .btn-apply { background-color: #28a745; color: white; }
-        .btn-apply:hover { background-color: #218838; }
-        .btn-back { background-color: #6c757d; color: white; }
-        .btn-back:hover { background-color: #5a6268; }
+        body { background-color: #f4f7f6; color: #333; padding-bottom: 50px; }
+        
+        header { background-color: #0d6efd; color: white; padding: 15px 20px; text-align: center; font-size: 22px; font-weight: bold; cursor: pointer; }
+        
+        .detail-container { max-width: 700px; margin: 40px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); border-top: 6px solid #0d6efd; }
+        
+        .badge { display: inline-block; background-color: #e2e8f0; color: #4a5568; padding: 5px 10px; border-radius: 4px; font-size: 13px; font-weight: bold; text-transform: uppercase; margin-bottom: 15px; }
+        
+        h1 { font-size: 28px; color: #222; margin-bottom: 10px; }
+        .meta-info { font-size: 15px; color: #666; margin-bottom: 20px; font-weight: 500; }
+        
+        hr { border: none; border-top: 1px solid #eee; margin-bottom: 20px; }
+        
+        h3 { color: #0d6efd; margin-bottom: 10px; font-size: 18px; }
+        .description-text { font-size: 16px; line-height: 1.6; color: #444; margin-bottom: 30px; background: #f8fafc; padding: 15px; border-radius: 6px; border-left: 3px solid #cbd5e1; }
+        
+        .btn-group { display: flex; gap: 15px; }
+        .btn { flex: 1; padding: 12px; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center; text-decoration: none; transition: 0.2s; }
+        .btn-apply { background-color: #198754; color: white; }
+        .btn-apply:hover { background-color: #157347; }
+        .btn-back { background-color: #6c757d; color: white; text-align: center; }
+        .btn-back:hover { background-color: #565e64; }
+
+        @media (max-width: 480px) {
+            .detail-container { margin: 20px 15px; padding: 20px; }
+            h1 { font-size: 22px; }
+            .btn-group { flex-direction: column; gap: 10px; }
+        }
     </style>
 </head>
 <body>
 
+    <header onclick="window.location.href='index.html'">🚀 NextStepHope Portal</header>
+
     <div class="detail-container">
-        <h1 id="detTitle">Job Title</h1>
+        <span class="badge" id="detType">Job Category</span>
+        <h1 id="detTitle">Loading Job Title...</h1>
+        <p class="meta-info" id="detLoc">📍 Location: Loading...</p>
+        <p class="meta-info" style="color: #dc3545; font-weight: bold;" id="detInfo">📅 Loading Dates...</p>
         
-        <div class="meta-info">
-            <p>📁 <strong>Category:</strong> <span id="detType">Loading...</span></p>
-            <p>📍 <strong>Location/Country:</strong> <span id="detLoc">Loading...</span></p>
-            <p>ℹ️ <strong>Extra Info / Deadline:</strong> <span id="detInfo">Loading...</span></p>
-        </div>
-
-        <div class="description">
-            <h3>📝 Job Description & Requirements:</h3>
-            <p>NextStepHope portal par khushamdeed! Yeh naukri aapke behtar mustaqbil ka agla kadam ho sakti hai. Is naukri ke liye taleem aur mutalqa tajruba (experience) zaroori hai. Company ki taraf se tamam qawaneen ke mutabiq sahuliyat di jayengi. Mazeed maloomat aur apply karne ke liye niche diye gaye button par click karein.</p>
-        </div>
-
+        <hr>
+        
+        <h3>📝 Job Description & Requirements</h3>
+        <p class="description-text" id="detDesc">Loading job requirements and specifications data...</p>
+        
         <div class="btn-group">
-            <button class="btn btn-apply" onclick="applyNow()">Apply Now</button>
-            <a href="index.html" class="btn btn-back">Go Back</a>
+            <button class="btn btn-apply" onclick="alert('Mubarak Ho!\n\nYour Application has been submitted successfully for this role. Our team will contact you soon.')">Apply Online Now</button>
+            <a href="index.html" class="btn btn-back">← Back to Portal</a>
         </div>
     </div>
 
-    <script>
-        // URL se data nikal kar page par dikhane ka tareeqa (URLSearchParams)
-        const urlParams = new URLSearchParams(window.location.search);
-        
-        const title = urlParams.get('title');
-        const type = urlParams.get('type');
-        const loc = urlParams.get('loc');
-        const info = urlParams.get('info');
-
-        // HTML elements mein data insert karna
-        document.getElementById('detTitle').innerText = title ? title : "Job Title Not Found";
-        document.getElementById('detType').innerText = type ? type : "N/A";
-        document.getElementById('detLoc').innerText = loc ? loc : "N/A";
-        document.getElementById('detInfo').innerText = info ? info : "N/A";
-
-        // Apply Now Button ka real functional kaam
-        function applyNow() {
-            alert("🎉 Mubarak Ho! Aapka Apply Form successfully submit ho gaya hai for: " + title + ".\n\nNextStepHope aapke liye nek khwahishaat ka izhaar karta hai!");
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
